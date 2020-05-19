@@ -55,7 +55,7 @@ import com.kjabs.springinit1.service.UsersService;
 public class AdminController {
 	
 
-	 public static String uploadDirectory = System.getProperty("user.dir")+"/uploads";
+	public static String uploadDirectory = System.getProperty("user.dir")+"/uploads";
 	
 	private UsersService usersService;
 	private CategoryService categoryService;
