@@ -23,6 +23,8 @@ public interface BookService {
 	public List<Book> findTopN();
 	
 	public List<Book> findMostSellingBooks();
+	
+	 public List<Book> findMostFavouredBooks();
 
 	public List<Book> searchBy(String theName);
 	

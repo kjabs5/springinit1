@@ -93,8 +93,11 @@ public class BookServiceImpl implements BookService{
 	public List<Book> findMostSellingBooks() {
 		return bookRepository.findMostSellingBooks();
 	}
-
-
+     
+	@Override
+	 public List<Book> findMostFavouredBooks(){
+		return bookRepository.findMostFavouredBooks(); 
+	 }
 
 	@Override
 	public List<Book> searchBy(String theName) {

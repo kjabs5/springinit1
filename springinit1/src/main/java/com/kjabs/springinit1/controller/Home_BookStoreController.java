@@ -74,6 +74,8 @@ public class Home_BookStoreController {
    	    theModel.addAttribute("booksList", booksList);
    	    List<Book> bestSelling=bookService.findMostSellingBooks();
 	    theModel.addAttribute("bestSelling", bestSelling);
+	    List<Book> mostFavoured=bookService.findMostFavouredBooks();
+	    theModel.addAttribute("mostFavoured", mostFavoured);
 		return "customer/index";
 		
 	}
