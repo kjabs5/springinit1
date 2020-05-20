@@ -47,7 +47,7 @@ import com.kjabs.springinit1.service.BookService;
 import com.kjabs.springinit1.service.CategoryService;
 import com.kjabs.springinit1.service.CustomerService;
 import com.kjabs.springinit1.service.ReviewService;
-import com.kjabs.springinit1.service.TestService;
+
 import com.kjabs.springinit1.service.UsersService;
 
 @Controller
@@ -60,7 +60,7 @@ public class AdminController {
 	private UsersService usersService;
 	private CategoryService categoryService;
 	private BookService bookService;
-	private TestService testService;
+
 	private CustomerService customerService;
 	private ReviewService reviewService;
 	private BookOrderService bookOrderService;
@@ -68,7 +68,7 @@ public class AdminController {
 	public AdminController(UsersService theUserService,
 			CategoryService theCategoryService,
 			BookService theBookService,
-			TestService theTestService,
+			
 			CustomerService theCustomerService,
 			ReviewService theReviewService,
 			BookOrderService theBookOrderService)
@@ -76,7 +76,7 @@ public class AdminController {
 		usersService=theUserService;
 		categoryService=theCategoryService;
 		bookService=theBookService;
-		testService=theTestService;
+
 		customerService=theCustomerService;
 		reviewService=theReviewService;
 		bookOrderService=theBookOrderService;
@@ -284,14 +284,14 @@ public class AdminController {
 		return "redirect:/Admin/books";
 	}
 	
-	//Test
-	@RequestMapping("/test")
-	public String test(Model theModel)
-	{   
-		List<Test> testbooks=testService.getAllBooks();
-		theModel.addAttribute("books", testbooks);
-        return "admin/book/test_list";
-	}
+//	//Test
+//	@RequestMapping("/test")
+//	public String test(Model theModel)
+//	{   
+//		List<Test> testbooks=testService.getAllBooks();
+//		theModel.addAttribute("books", testbooks);
+//        return "admin/book/test_list";
+//	}
 	
 	@RequestMapping("/testform")
 	public String testForm(Model theModel)
@@ -343,48 +343,48 @@ public class AdminController {
 //		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 //	}
 	
-    @RequestMapping("/saveTest")
-	
-	public String saveTest(@ModelAttribute ("testbook") Test theTest,@RequestParam("name") final String name,Model theModel,@RequestParam("image") MultipartFile image) {
-	
-    	
-
-		String message="New Book added";
-	   // String fileName=null;
-		StringBuilder fileNames = new StringBuilder();
-		  try { 
-			  
-			  String filename=image.getOriginalFilename();
-				String filepath=Paths.get(uploadDirectory, filename).toString();
-				String fileType=image.getContentType();
-				long size=image.getSize();
-				String filesize=String.valueOf(size);
-				
-				theTest.setName(name);
-				theTest.setFile_name(filename);
-				theTest.setFile_path(filepath);
-				theTest.setFile_size(filesize);
-				theTest.setFile_type(fileType);
-				
-			  //fileName=image.getOriginalFilename();
-			  Path fileNameAndPath = Paths.get(uploadDirectory, image.getOriginalFilename());
-			  fileNames.append(image.getOriginalFilename()+" ");
-			
-				Files.write(fileNameAndPath, image.getBytes());
-				
-				
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		  
-		//theModel.addAttribute("fileName", fileName) ;
-	    theModel.addAttribute("msg", "Successfully uploaded files "+fileNames.toString());
-		
-	    testService.save(theTest);
-		return "redirect:/Admin/test";
-		
-	}
+//    @RequestMapping("/saveTest")
+//	
+//	public String saveTest(@ModelAttribute ("testbook") Test theTest,@RequestParam("name") final String name,Model theModel,@RequestParam("image") MultipartFile image) {
+//	
+//    	
+//
+//		String message="New Book added";
+//	   // String fileName=null;
+//		StringBuilder fileNames = new StringBuilder();
+//		  try { 
+//			  
+//			  String filename=image.getOriginalFilename();
+//				String filepath=Paths.get(uploadDirectory, filename).toString();
+//				String fileType=image.getContentType();
+//				long size=image.getSize();
+//				String filesize=String.valueOf(size);
+//				
+//				theTest.setName(name);
+//				theTest.setFile_name(filename);
+//				theTest.setFile_path(filepath);
+//				theTest.setFile_size(filesize);
+//				theTest.setFile_type(fileType);
+//				
+//			  //fileName=image.getOriginalFilename();
+//			  Path fileNameAndPath = Paths.get(uploadDirectory, image.getOriginalFilename());
+//			  fileNames.append(image.getOriginalFilename()+" ");
+//			
+//				Files.write(fileNameAndPath, image.getBytes());
+//				
+//				
+//				
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		  
+//		//theModel.addAttribute("fileName", fileName) ;
+//	    theModel.addAttribute("msg", "Successfully uploaded files "+fileNames.toString());
+//		
+//	    testService.save(theTest);
+//		return "redirect:/Admin/test";
+//		
+//	}
     
     //Customer
     
